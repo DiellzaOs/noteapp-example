@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>    
+    <title>New Product</title>
+</head>
+
+<body>
+  
+  <%- include('../partials/head') %> 
+    
+    <div class="container mt-5">
+        <div class="card w-50 mx-auto">
+            <div class="card-header bg-gray text-center text-white" style="background-color: rgb(51, 51, 51);">
+                <h4>Add new note</h4>
+            </div>
+            <div class="card-body">
+                <form action="/products" method="POST">
+                    <div class="mb-4">
+                        <label for="addlabel" class="form-label"><b>Title</b></label>
+                        <input type="text" class="form-control" placeholder="Title" id="addlabel" required name="title" aria-label="title aria-describedby">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"><b>Description</b></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" placeholder="Content"></textarea>
+                      </div>
+                      <!-- <div class="mb-3">
+                        <label for="upload" class="form-label"><b>Upload File</b></label>
+                        <input type="file" class="form-control" name="upload" id="upload" placeholder="Upload file">
+                      </div> -->
+                      <div class="mb-3">
+                      <label for="category" class="form-label"><b>Select Category</b></label>
+                        <select name="category" id="category" class="form-select mb-3" aria-label="Default select example">
+                            <% for(let category of categories){ %>
+                            <option value="<%=category%>"><%=category%></option>
+                            <% } %>
+                        </select>
+                      </div>
+                      <div class="d-grid col-6 mx-auto">
+                      <button class="btn btn-success" type="submit">Submit</button>
+                      </div>
+                 </form>
+            </div>
+            <div class="card-footer text-white text-center" style="background-color: rgb(51, 51, 51);">
+              <p></p>
+            </div>
+          </div>
+    </div>
+
+        </div>
+    </div>
+    
+    <!-- <form action="/products" method="POST">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" placeholder="title">
+        <label for="description">description</label>
+        <input type="text" id="description" name="description" placeholder="description">
+        
+        <button>Submit</button>
+    </form> -->
+
+</body>
+
+</html>
